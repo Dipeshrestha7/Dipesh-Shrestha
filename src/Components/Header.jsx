@@ -17,7 +17,7 @@ function Header() {
           <NavLink className="hover:text-blue-500" to="https://www.linkedin.com/in/dipesh-shrestha-678a64243?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BYX%2B8CKtjTJiKecEo3s%2BJDQ%3D%3D"><FaLinkedin /></NavLink>
         </div>
 
-        <h1 className='text-orange-300 font-extrabold text-4xl pr-24'>Dipesh Shrestha</h1>
+        <h1 className='text-purple-600 font-extrabold text-4xl pr-24'>Dipesh Shrestha</h1>
 
         <div className='text-white flex  text-2xl'>
           <MdDarkMode />
