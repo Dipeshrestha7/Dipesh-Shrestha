@@ -26,27 +26,27 @@ function Header() {
 
       <ul className='flex flex-row justify-items-center justify-center gap-x-7 pt-10 text-md'>
         <li>
-          <NavLink className={({ isActive }) => `${isActive ? 'text-purple-900' : 'text-white'} hover:text-purple-600`} to="">
+          <NavLink className={({ isActive }) => `${isActive ? 'text-purple-900 border-b-2 border-purple-900' : 'text-white'} hover:text-purple-600 hover:border-b-2 hover:border-purple-600`} to="">
             Home
           </NavLink>
         </li>
         <li>
-          <NavLink className={({ isActive }) => `${isActive ? 'text-purple-900' : 'text-white'} hover:text-purple-600`} to="about">
+          <NavLink className={({ isActive }) => `${isActive ? 'text-purple-900 border-b-2 border-purple-900' : 'text-white'} hover:text-purple-600 hover:border-b-2 hover:border-purple-600`} to="about">
             About
           </NavLink>
         </li>
         <li>
-          <NavLink className={({ isActive }) => `${isActive ? 'text-purple-900' : 'text-white'} hover:text-purple-600`} to="projects">
+          <NavLink className={({ isActive }) => `${isActive ? 'text-purple-900 border-b-2 border-purple-900' : 'text-white'} hover:text-purple-600 hover:border-b-2 hover:border-purple-600`} to="projects">
             Projects
           </NavLink>
         </li>
         <li>
-          <NavLink className={({ isActive }) => `${isActive ? 'text-purple-900' : 'text-white'} hover:text-purple-600`} to="contact">
+          <NavLink className={({ isActive }) => `${isActive ? 'text-purple-900 border-b-2 border-purple-900' : 'text-white'} hover:text-purple-600 hover:border-b-2 hover:border-purple-600`} to="contact">
             Contact
           </NavLink>
         </li>
         <li>
-          <NavLink className={({ isActive }) => `${isActive ? 'text-purple-900' : 'text-white'} hover:text-purple-600`} to="services">
+          <NavLink className={({ isActive }) => `${isActive ? 'text-purple-900 border-b-2 border-purple-900' : 'text-white'} hover:text-purple-600 hover:border-b-2 hover:border-purple-600`} to="services">
             Services
           </NavLink>
         </li>
