@@ -10,16 +10,16 @@ function Footer() {
       <div className="container mx-auto px-4 flex flex-col items-center space-y-4">
         
         <div className="flex space-x-4 text-2xl">
-          <Link to="/facebook">
+          <Link to="https://www.facebook.com/dipesh.shrestha.328280">
             <RiFacebookCircleFill className="hover:text-blue-500 transition cursor-pointer" />
           </Link>
-          <Link to="/instagram">
+          <Link to="https://www.instagram.com/dipeshrestha_7/">
             <FaInstagram className="hover:text-pink-500 transition cursor-pointer" />
           </Link>
-          <Link to="/github">
+          <Link to="https://github.com/Dipeshrestha7">
             <FaGithub className="hover:text-gray-400 transition cursor-pointer" />
           </Link>
-          <Link to="/linkedin">
+          <Link to="https://www.linkedin.com/in/dipesh-shrestha-678a64243/">
             <FaLinkedin className="hover:text-blue-400 transition cursor-pointer" />
           </Link>
         </div>

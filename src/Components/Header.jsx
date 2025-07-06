@@ -11,10 +11,10 @@ function Header() {
     <nav className='bg-gray-900 p-8 sticky '>
       <div className='flex justify-between items-center '>
         <div className='flex flex-row space-x-2  text-2xl text-white'>
-          <NavLink className="hover:text-blue-500" to="https://www.facebook.com"><RiFacebookCircleFill /></NavLink>
-          <NavLink className="hover:text-pink-600" to="https://www.instagram.com"><FaInstagram /></NavLink>
+          <NavLink className="hover:text-blue-500" to="https://www.facebook.com/dipesh.shrestha.328280"><RiFacebookCircleFill /></NavLink>
+          <NavLink className="hover:text-pink-600" to="https://www.instagram.com/dipeshrestha_7/"><FaInstagram /></NavLink>
           <NavLink className="hover:text-gray-500" to="https://github.com/Dipeshrestha7"><FaGithub /></NavLink>
-          <NavLink className="hover:text-blue-500" to="https://www.linkedin.com/in/dipesh-shrestha-678a64243?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BYX%2B8CKtjTJiKecEo3s%2BJDQ%3D%3D"><FaLinkedin /></NavLink>
+          <NavLink className="hover:text-blue-500" to="https://www.linkedin.com/in/dipesh-shrestha-678a64243/"><FaLinkedin /></NavLink>
         </div>
 
         <h1 className='text-purple-600 font-extrabold text-4xl pr-24'>Dipesh Shrestha</h1>
