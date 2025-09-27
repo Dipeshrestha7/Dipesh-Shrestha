@@ -64,7 +64,7 @@ function Header() {
 
       {/* Desktop Menu */}
       <ul className="hidden md:flex flex-row justify-center gap-x-7 pt-4 text-md">
-        {["Home", "About", "Projects", "Contact", "Services"].map((item) => (
+        {["Home", "About", "Projects", "Contact"].map((item) => (
           <li key={item}>
             <NavLink
               to={item.toLowerCase() === "home" ? "/" : item.toLowerCase()}
