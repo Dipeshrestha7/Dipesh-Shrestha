@@ -28,6 +28,7 @@ function Contact() {
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.6 }}
         transition={{ duration: 1 }}
         className="relative z-10 max-w-3xl mx-auto bg-gray-900/60 backdrop-blur-md p-10 rounded-3xl shadow-2xl border border-gray-700"
       >

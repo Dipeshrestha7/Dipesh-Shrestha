@@ -3,6 +3,7 @@ import { FaArrowRight } from "react-icons/fa";
 import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import myPhoto from '../assets/myPhoto.jpg';
+import About from './Project';
 
 function Home() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -100,7 +101,9 @@ function Home() {
           />
         </div>
       </motion.div>
+
     </div>
+      
   );
 }
 

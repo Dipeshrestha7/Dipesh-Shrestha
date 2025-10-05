@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom cursor defaults */
+html, body {
+  cursor: none;
+}
+
+/* Preserve text/input I-beam and pointer for accessibility where appropriate */
+input, textarea, select, a, button, [role="button"] {
+  cursor: none;
+}
+
+/* Optional: improve scrolling feel for animated pages */
+html {
+  scroll-behavior: smooth;
+}

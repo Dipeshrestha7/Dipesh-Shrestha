@@ -5,6 +5,7 @@ import { FaInstagram, FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa6";
 import { MdDarkMode } from "react-icons/md";
 import { HiMenu, HiX } from "react-icons/hi";
+import { motion, AnimatePresence } from "framer-motion";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,11 +13,16 @@ function Header() {
   return (
     <nav className="bg-gray-900 p-4 md:p-6 sticky top-0 z-50">
       {/* Top Bar */}
-      <div className="flex items-center justify-between">
+      <motion.div
+        className="flex items-center justify-between"
+        initial={{ y: -20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.35 }}
+      >
         {/* Logo / Name */}
-        <h1 className="text-purple-600 font-extrabold text-2xl sm:text-3xl md:text-4xl">
+        <motion.h1 className="text-purple-600 font-extrabold text-2xl sm:text-3xl md:text-4xl" whileHover={{ scale: 1.03 }}>
           Dipesh Shrestha
-        </h1>
+        </motion.h1>
 
         {/* Right side: Social icons + Dark mode + Hamburger */}
         <div className="flex items-center space-x-4 text-white text-xl md:text-2xl">
@@ -56,11 +62,11 @@ function Header() {
           <MdDarkMode className="hidden md:block" />
 
           {/* Hamburger (mobile only) */}
-          <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
+          <motion.button className="md:hidden" onClick={() => setIsOpen(!isOpen)} whileTap={{ scale: 0.9 }}>
             {isOpen ? <HiX /> : <HiMenu />}
-          </button>
+          </motion.button>
         </div>
-      </div>
+      </motion.div>
 
       {/* Desktop Menu */}
       <ul className="hidden md:flex flex-row justify-center gap-x-7 pt-4 text-md">
@@ -75,33 +81,40 @@ function Header() {
                 } pb-2 transition-all ease-in duration-100 hover:text-purple-600 hover:border-b-2 hover:border-purple-600`
               }
             >
-              {item}
+              <motion.span whileHover={{ y: -2 }}>{item}</motion.span>
             </NavLink>
           </li>
         ))}
       </ul>
 
       {/* Mobile Dropdown Menu */}
-      {isOpen && (
-        <ul className="md:hidden flex flex-col gap-y-4 mt-4 text-center text-md">
-          {["Home", "About", "Projects", "Contact", "Services"].map((item) => (
-            <li key={item}>
-              <NavLink
-                to={item.toLowerCase() === "home" ? "/" : item.toLowerCase()}
-                className={({ isActive }) =>
-                  `${isActive
-                    ? "text-purple-600 border-b-2 border-purple-600"
-                    : "text-white"
-                  } block pb-2 transition-all ease-in duration-100 hover:text-purple-600 hover:border-b-2 hover:border-purple-600`
-                }
-                onClick={() => setIsOpen(false)} // close menu after click
-              >
-                {item}
-              </NavLink>
-            </li>
-          ))}
-        </ul>
-      )}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.ul
+            className="md:hidden flex flex-col gap-y-4 mt-4 text-center text-md"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+          >
+            {["Home", "About", "Projects", "Contact", "Services"].map((item) => (
+              <li key={item}>
+                <NavLink
+                  to={item.toLowerCase() === "home" ? "/" : item.toLowerCase()}
+                  className={({ isActive }) =>
+                    `${isActive
+                      ? "text-purple-600 border-b-2 border-purple-600"
+                      : "text-white"
+                    } block pb-2 transition-all ease-in duration-100 hover:text-purple-600 hover:border-b-2 hover:border-purple-600`
+                  }
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item}
+                </NavLink>
+              </li>
+            ))}
+          </motion.ul>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }

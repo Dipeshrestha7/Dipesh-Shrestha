@@ -44,14 +44,14 @@ function About() {
       ))}
 
       {/* Hero Section */}
-      <motion.section initial={{ opacity: 0, y: -50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="text-center mb-20">
+      <motion.section initial={{ opacity: 0, y: -50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.6 }} transition={{ duration: 1 }} className="text-center mb-20">
         <h1 className="text-5xl font-extrabold bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
           My Projects
         </h1>
       </motion.section>
 
       {/* Vendure Section */}
-      <motion.section initial={{ opacity: 0, x: -100 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1 }} viewport={{ once: true }} className="grid md:grid-cols-2 gap-10 items-center mb-24">
+      <motion.section initial={{ opacity: 0, x: -100 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1 }} viewport={{ once: true, amount: 0.4 }} className="grid md:grid-cols-2 gap-10 items-center mb-24">
         <img src="https://vendure.io/images/logos/vendure-logo-dark.png" alt="Vendure" className="w-full rounded-2xl shadow-lg hover:scale-105 transition-transform duration-500" />
         <div>
           <h2 className="text-3xl font-bold text-pink-400">Vendure</h2>
@@ -62,7 +62,7 @@ function About() {
       </motion.section>
 
       {/* Strapi Section */}
-      <motion.section initial={{ opacity: 0, x: 100 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1 }} viewport={{ once: true }} className="grid md:grid-cols-2 gap-10 items-center mb-24">
+      <motion.section initial={{ opacity: 0, x: 100 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1 }} viewport={{ once: true, amount: 0.4 }} className="grid md:grid-cols-2 gap-10 items-center mb-24">
         <div>
           <h2 className="text-3xl font-bold text-purple-400">Strapi</h2>
           <p className="mt-4 text-gray-300 leading-relaxed">
@@ -73,7 +73,7 @@ function About() {
       </motion.section>
 
       {/* PostgreSQL Section */}
-      <motion.section initial={{ opacity: 0, x: -100 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1 }} viewport={{ once: true }} className="grid md:grid-cols-2 gap-10 items-center mb-24">
+      <motion.section initial={{ opacity: 0, x: -100 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1 }} viewport={{ once: true, amount: 0.4 }} className="grid md:grid-cols-2 gap-10 items-center mb-24">
         <img src="https://www.postgresql.org/media/img/about/press/elephant.png" alt="PostgreSQL" className="w-64 mx-auto rounded-full shadow-lg hover:rotate-6 transition-transform duration-500" />
         <div>
           <h2 className="text-3xl font-bold text-green-400">PostgreSQL</h2>
@@ -84,7 +84,7 @@ function About() {
       </motion.section>
 
       {/* Vercel Section */}
-      <motion.section initial={{ opacity: 0, y: 100 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} viewport={{ once: true }} className="text-center mb-24">
+      <motion.section initial={{ opacity: 0, y: 100 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} viewport={{ once: true, amount: 0.4 }} className="text-center mb-24">
         <img src="https://assets.vercel.com/image/upload/front/favicon/vercel/180x180.png" alt="Vercel" className="w-32 mx-auto mb-6 hover:scale-110 transition-transform duration-500" />
         <h2 className="text-3xl font-bold text-blue-400">Vercel</h2>
         <p className="mt-4 text-gray-300 max-w-3xl mx-auto leading-relaxed">
@@ -93,7 +93,7 @@ function About() {
       </motion.section>
 
       {/* Featured Projects Section */}
-      <motion.section initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} viewport={{ once: true }} className="max-w-6xl mx-auto my-20">
+      <motion.section initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} viewport={{ once: true, amount: 0.4 }} className="max-w-6xl mx-auto my-20">
         <h2 className="text-4xl font-bold text-center text-purple-400 mb-12">Featured Projects</h2>
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-2">
           {projects.map((project, index) => (
