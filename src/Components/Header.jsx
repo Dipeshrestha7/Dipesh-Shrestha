@@ -12,7 +12,7 @@ function Header() {
 
   return (
     <motion.nav
-      className="bg-black ml-2 mr-2  md:p-6 sticky top-0 z-50 shadow-lg"
+      className="bg-black ml-2 mr-2 md:p-6 sticky top-0 z-50 shadow-lg"
       initial={{ y: -40, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
@@ -104,13 +104,13 @@ function Header() {
         {navItems.map((item) => (
           <li key={item}>
             <NavLink
-              to={item.toLowerCase() === "home" ? "/" : item.toLowerCase()}
+              to={item.toLowerCase() === "home" ? "/" : `/${item.toLowerCase()}`}
               className={({ isActive }) =>
                 `${
                   isActive
-                    ? "text-purple-500"
+                    ? "text-purple-500 border-b-2 border-purple-500"
                     : "text-white hover:text-purple-400"
-                } relative font-medium tracking-wide transition-all duration-300`
+                } relative font-medium tracking-wide transition-all duration-300 pb-1`
               }
             >
               <motion.span
@@ -124,11 +124,6 @@ function Header() {
                 className="relative"
               >
                 {item}
-                <motion.div
-                  className="absolute left-0 bottom-0 w-0 h-[2px] bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500"
-                  whileHover={{ width: "100%" }}
-                  transition={{ duration: 0.4, ease: "easeInOut" }}
-                />
               </motion.span>
             </NavLink>
           </li>
@@ -146,23 +141,29 @@ function Header() {
             transition={{ duration: 0.3, ease: "easeOut" }}
           >
             {[...navItems, "Services"].map((item) => (
-              <motion.li
+              <NavLink
                 key={item}
-                whileHover={{
-                  scale: 1.05,
-                  color: "#a855f7",
-                  textShadow: "0px 0px 8px rgba(168,85,247,0.8)",
-                }}
-                transition={{ type: "spring", stiffness: 200 }}
+                to={item.toLowerCase() === "home" ? "/" : `/${item.toLowerCase()}`}
+                className={({ isActive }) =>
+                  `block font-medium transition-all duration-200 ${
+                    isActive
+                      ? "text-purple-500 bg-purple-900/20 py-2 rounded-md"
+                      : "text-white hover:text-purple-400"
+                  }`
+                }
+                onClick={() => setIsOpen(false)}
               >
-                <NavLink
-                  to={item.toLowerCase() === "home" ? "/" : item.toLowerCase()}
-                  className="text-white hover:text-purple-500 font-medium transition-all"
-                  onClick={() => setIsOpen(false)}
+                <motion.li
+                  whileHover={{
+                    scale: 1.05,
+                    color: "#a855f7",
+                    textShadow: "0px 0px 8px rgba(168,85,247,0.8)",
+                  }}
+                  transition={{ type: "spring", stiffness: 200 }}
                 >
                   {item}
-                </NavLink>
-              </motion.li>
+                </motion.li>
+              </NavLink>
             ))}
           </motion.ul>
         )}
