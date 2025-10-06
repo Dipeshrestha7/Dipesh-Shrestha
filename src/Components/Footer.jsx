@@ -32,7 +32,7 @@ function Footer() {
   ];
 
   return (
-    <footer className="relative bg-gray-900 text-gray-200 py-10 overflow-hidden">
+    <footer className="relative bg-black   text-gray-200 py-10 overflow-hidden">
 
       {/* Floating blobs */}
       <motion.div

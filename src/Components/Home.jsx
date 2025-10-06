@@ -62,7 +62,7 @@ function Home() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
       >
-        {/* Left */}
+        {/* Left Section */}
         <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-7 z-10">
           <h2 className="text-xl sm:text-2xl md:text-3xl text-purple-400 font-semibold">
             <span className='text-white'>Hello, I'm</span> <br /> Dipesh Shrestha
@@ -76,23 +76,46 @@ function Home() {
             Explore my projects, skills, and experiences.
           </p>
 
+          {/* Animated Border Button */}
           <NavLink to="/projects">
-            <button
-              className="flex items-center justify-center gap-3 rounded-xl px-6 py-4
-                         bg-[linear-gradient(to_right,_white_50%,_transparent_50%)] bg-[length:200%_100%]
-                         bg-right-bottom hover:bg-left-bottom transition-all duration-400 ease-in-out
-                         border-2 border-purple-950 hover:text-black shadow-xl shadow-purple-800
-                         hover:border-black hover:shadow-white text-white font-semibold text-lg"
-            >
-              <span>Get Started</span>
-              <span className="text-xl hover:animate-ping">
-                <FaArrowRight />
-              </span>
-            </button>
-          </NavLink>
+  <motion.button
+    className="relative px-8 py-3 rounded-xl overflow-hidden font-semibold text-white 
+               bg-transparent backdrop-blur-sm border-2 border-transparent 
+               shadow-lg hover:scale-105 transition-all duration-500"
+    whileHover={{ scale: 1.05 }}
+    transition={{ type: 'spring', stiffness: 200 }}
+  >
+    {/* Animated gradient border */}
+    <motion.div
+      className="absolute inset-0 rounded-xl p-[2px] bg-gradient-to-r from-purple-700 via-pink-600 to-indigo-600"
+      animate={{ backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] }}
+      transition={{ duration: 5, repeat: Infinity, ease: 'linear' }}
+      style={{
+        backgroundSize: '200% 200%',
+        zIndex: 0,
+      }}
+    ></motion.div>
+
+    {/* Inner layer (transparent so body color is visible) */}
+    <div className="absolute inset-[2px] rounded-xl bg-transparent backdrop-blur-sm z-10"></div>
+
+    {/* Button content */}
+    <div className="relative flex items-center justify-center gap-3 z-20">
+      <span className="text-lg font-medium">Get Started</span>
+      <motion.span
+        className="text-xl"
+        animate={{ x: [0, 4, 0] }}
+        transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+      >
+        <FaArrowRight />
+      </motion.span>
+    </div>
+  </motion.button>
+</NavLink>
+
         </div>
 
-        {/* Right - Image */}
+        {/* Right Section - Image */}
         <div className="mt-10 md:mt-0 md:ml-12 z-10">
           <img
             className="rounded-full w-52 h-52 sm:w-64 sm:h-64 md:w-80 md:h-80 object-cover border-4 border-purple-600 shadow-2xl"
@@ -103,7 +126,6 @@ function Home() {
       </motion.div>
 
     </div>
-      
   );
 }
 
