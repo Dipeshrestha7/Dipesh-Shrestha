@@ -70,16 +70,18 @@ function Header() {
                       isActive
                       ? "text-purple-500 border-b-2 border-purple-500"
                       : "text-white hover:text-purple-400"
-                    } relative group font-medium tracking-wide transition-all duration-300 pb-1`
+                    } relative group font-medium tracking-wide transition-all duration-300 p-1`
                   }
                 >
-                  <div className="absolute bottom-0 left-0 bg-purple-500 w-0 h-[2.5px] group-hover:w-full transition-all duration-300"></div>
-                  <div className="absolute bottom-0 left-0 bg-purple-500 w-[2.5px] h-0 group-hover:h-full transition-all duration-300"></div>
+                  <div className="absolute top-0 left-0 bg-purple-500 w-0 h-[1.5px] group-hover:w-4 transition-all duration-300"></div>
+                  <div className="absolute top-0 left-0 bg-purple-500 w-[1.5px] h-0 group-hover:h-4 transition-all duration-300"></div>
+                  
+                  <div className="absolute bottom-0 right-0 bg-purple-500 w-0 h-[1.5px] group-hover:w-4 transition-all duration-300"></div>
+                  <div className="absolute bottom-0 right-0 bg-purple-500 w-[1.5px] h-0 group-hover:h-4 transition-all duration-300"></div>
                   <motion.span
                     whileHover={{
                       scale: 1.1,
                       y: -2,
-                      color: "#a855f7",
                       textShadow: "0px 0px 8px rgba(168,85,247,0.8)",
                     }}
                     transition={{ type: "spring", stiffness: 250 }}
