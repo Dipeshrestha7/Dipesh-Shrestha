@@ -78,40 +78,40 @@ function Home() {
 
           {/* Animated Border Button */}
           <NavLink to="/projects">
-  <motion.button
-    className="relative px-8 py-3 rounded-xl overflow-hidden font-semibold text-white 
-               bg-transparent backdrop-blur-sm border-2 border-transparent 
-               shadow-lg hover:scale-105 transition-all duration-500"
-    whileHover={{ scale: 1.05 }}
-    transition={{ type: 'spring', stiffness: 200 }}
-  >
-    {/* Animated gradient border */}
-    <motion.div
-      className="absolute inset-0 rounded-xl p-[2px] bg-gradient-to-r from-purple-700 via-pink-600 to-indigo-600"
-      animate={{ backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] }}
-      transition={{ duration: 5, repeat: Infinity, ease: 'linear' }}
-      style={{
-        backgroundSize: '200% 200%',
-        zIndex: 0,
-      }}
-    ></motion.div>
+            <motion.button
+              className="relative px-8 py-3 rounded-xl overflow-hidden font-semibold text-white 
+                        bg-transparent backdrop-blur-sm border-2 border-transparent 
+                        shadow-lg hover:scale-105 transition-all duration-500"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: 'spring', stiffness: 200 }}
+            >
+              {/* Animated gradient border */}
+              <motion.div
+                className="absolute inset-0 rounded-xl p-[2px] bg-gradient-to-r from-purple-700 via-pink-600 to-indigo-600"
+                animate={{ backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] }}
+                transition={{ duration: 5, repeat: Infinity, ease: 'linear' }}
+                style={{
+                  backgroundSize: '200% 200%',
+                  zIndex: 0,
+                }}
+              ></motion.div>
 
-    {/* Inner layer (transparent so body color is visible) */}
-    <div className="absolute inset-[2px] rounded-xl bg-transparent backdrop-blur-sm z-10"></div>
+              {/* Inner layer (transparent so body color is visible) */}
+              <div className="absolute inset-[2px] rounded-xl bg-transparent backdrop-blur-sm z-10"></div>
 
-    {/* Button content */}
-    <div className="relative flex items-center justify-center gap-3 z-20">
-      <span className="text-lg font-medium">Get Started</span>
-      <motion.span
-        className="text-xl"
-        animate={{ x: [0, 4, 0] }}
-        transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-      >
-        <FaArrowRight />
-      </motion.span>
-    </div>
-  </motion.button>
-</NavLink>
+              {/* Button content */}
+              <div className="relative flex items-center justify-center gap-3 z-20">
+                <span className="text-lg font-medium">Get Started</span>
+                <motion.span
+                  className="text-xl"
+                  animate={{ x: [0, 4, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+                >
+                  <FaArrowRight />
+                </motion.span>
+              </div>
+            </motion.button>
+          </NavLink>
 
         </div>
 
