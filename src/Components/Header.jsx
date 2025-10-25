@@ -18,21 +18,21 @@ function Header() {
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
       <div className="relative p-2 w-full">
-        <div className="absolute top-0 left-0 w-16 h-[2px] rounded-full bg-gradient-to-r from-purple-500  to-blue-500"></div>
-        <div className="absolute top-0 left-0 w-[2px] h-12 rounded-full bg-gradient-to-b from-purple-500  to-blue-500"></div>
+        <div className="absolute top-0 left-0 w-16 h-[1px] rounded-full bg-gradient-to-r from-purple-500  to-blue-500"></div>
+        <div className="absolute top-0 left-0 w-[1px] h-12 rounded-full bg-gradient-to-b from-purple-500  to-blue-500"></div>
         
-        <div className="absolute top-0 right-0 w-16 h-[2px] rounded-full bg-gradient-to-l from-purple-500  to-blue-500"></div>
-        <div className="absolute top-0 right-0 w-[2.5px] h-12 rounded-full bg-gradient-to-b from-purple-500  to-blue-500"></div>
+        <div className="absolute top-0 right-0 w-16 h-[1px] rounded-full bg-gradient-to-l from-purple-500  to-blue-500"></div>
+        <div className="absolute top-0 right-0 w-[1px] h-12 rounded-full bg-gradient-to-b from-purple-500  to-blue-500"></div>
       
         
         {/* Top Bar */}
         <div className="flex items-center justify-around relative">
 
-          <div className="absolute top-0 left-0 w-8 h-[2px] rounded-full bg-gradient-to-r from-purple-500  to-blue-500"></div>
-          <div className="absolute top-0 left-0 w-[2px] h-5 rounded-full bg-gradient-to-b from-purple-500  to-blue-500"></div>
+          <div className="absolute top-0 left-0 w-8 h-[1px] rounded-full bg-gradient-to-r from-purple-500  to-blue-500"></div>
+          <div className="absolute top-0 left-0 w-[1px] h-5 rounded-full bg-gradient-to-b from-purple-500  to-blue-500"></div>
           
-          <div className="absolute top-0 right-0 w-8 h-[2px] rounded-full bg-gradient-to-l from-purple-500  to-blue-500"></div>
-          <div className="absolute top-0 right-0 w-[2.5px] h-5 rounded-full bg-gradient-to-b from-purple-500  to-blue-500"></div>
+          <div className="absolute top-0 right-0 w-8 h-[1px] rounded-full bg-gradient-to-l from-purple-500  to-blue-500"></div>
+          <div className="absolute top-0 right-0 w-[1px] h-5 rounded-full bg-gradient-to-b from-purple-500  to-blue-500"></div>
 
           {/* Animated Gradient Name */}
           <motion.h1
@@ -68,7 +68,7 @@ function Header() {
                   className={({ isActive }) =>
                     `${
                       isActive
-                      ? "text-purple-500 border-b-2 border-purple-500"
+                      ? "text-purple-500 border-b-[2px] border-purple-500"
                       : "text-white hover:text-purple-400"
                     } relative group font-medium tracking-wide transition-all duration-300 p-1`
                   }
