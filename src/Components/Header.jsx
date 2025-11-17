@@ -10,6 +10,14 @@ function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const navItems = ["Home", "About", "Projects", "Contact"];
 
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
+
   return (
     <motion.nav
       className="bg-black/5 backdrop-blur-3xl ml-2 mr-2 md:p-6 sticky top-0 z-50 shadow-lg font-mono"
@@ -26,7 +34,7 @@ function Header() {
       
         
         {/* Top Bar */}
-        <div className="flex items-center justify-around relative">
+        <div className="flex items-center justify-between md:justify-around relative px-4">
 
           <div className="absolute top-0 left-0 w-8 h-[1px] rounded-full bg-gradient-to-r from-purple-500  to-blue-500"></div>
           <div className="absolute top-0 left-0 w-[1px] h-5 rounded-full bg-gradient-to-b from-purple-500  to-blue-500"></div>
@@ -94,21 +102,34 @@ function Header() {
               </li>
             ))}
           </ul>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={toggleMenu}
+            className="md:hidden text-white hover:text-purple-400 transition-colors duration-200 p-2"
+            aria-label="Toggle menu"
+          >
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              {isOpen ? <HiX size={24} /> : <HiMenu size={24} />}
+            </motion.div>
+          </button>
         </div>
       </div>
 
-
-      {/* Mobile Menu */}
+      {/* Mobile Menu - Slides from right */}
       <AnimatePresence>
         {isOpen && (
           <motion.ul
-            className="md:hidden flex flex-col gap-y-4 mt-4 text-center text-md bg-black/80 rounded-lg py-4 backdrop-blur-md"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
+            className="md:hidden flex flex-col gap-y-4 mt-4 h-screen text-center text-md bg-black/80 rounded-lg py-4 backdrop-blur-md absolute top-full right-0 w-48"
+            initial={{ x: "100%", opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: "100%", opacity: 0 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
           >
-            {[...navItems, "Services"].map((item) => (
+            {navItems.map((item) => (
               <NavLink
                 key={item}
                 to={item.toLowerCase() === "home" ? "/" : `/${item.toLowerCase()}`}
@@ -119,7 +140,7 @@ function Header() {
                       : "text-white hover:text-purple-400"
                   }`
                 }
-                onClick={() => setIsOpen(false)}
+                onClick={closeMenu}
               >
                 <motion.li
                   whileHover={{
