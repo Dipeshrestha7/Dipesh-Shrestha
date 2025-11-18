@@ -16,20 +16,72 @@ function About() {
   }, []);
 
   const blobs = [
-    { size: 100, color: "bg-purple-600", style: { top: "15%", left: "10%" }, factorX: 30, factorY: 20 },
-    { size: 80, color: "bg-pink-500", style: { bottom: "20%", right: "15%" }, factorX: -25, factorY: 15 },
-    { size: 120, color: "bg-blue-500", style: { top: "50%", left: "40%" }, factorX: 40, factorY: -30 },
-    { size: 70, color: "bg-indigo-500", style: { bottom: "25%", left: "25%" }, factorX: 20, factorY: 25 },
+    { size: 100, color: "bg-purple-600/20", style: { top: "15%", left: "10%" }, factorX: 30, factorY: 20 },
+    { size: 80, color: "bg-blue-500/20", style: { bottom: "20%", right: "15%" }, factorX: -25, factorY: 15 },
+    { size: 120, color: "bg-indigo-600/20", style: { top: "50%", left: "40%" }, factorX: 40, factorY: -30 },
+    { size: 70, color: "bg-slate-600/20", style: { bottom: "25%", left: "25%" }, factorX: 20, factorY: 25 },
+  ];
+
+  const technicalSkills = [
+    { 
+      category: "Frontend Development", 
+      skills: ["React.js", "JavaScript (ES6+)", "HTML5", "CSS3", "Tailwind CSS", "Framer Motion","GSAP","React i18n"],
+      icon: "💻",
+      color: "from-purple-600 to-blue-600"
+    },
+    { 
+      category: "Backend & Databases", 
+      skills: ["PHP", "Node.js", "Express.js", "MySQL", "PostgreSQL", "RESTful APIs"],
+      icon: "⚙️",
+      color: "from-blue-600 to-cyan-600"
+    },
+    { 
+      category: "Tools & Platforms", 
+      skills: ["Git & GitHub", "Strapi CMS", "Vercel", "Figma"],
+      icon: "🛠️",
+      color: "from-indigo-600 to-purple-600"
+    }
+  ];
+
+  const projects = [
+    { 
+      title: "E-commerce Platform", 
+      description: "Full-stack online store with Vendure, PostgreSQL, and modern React frontend",
+      technologies: ["React", "Vendure", "PostgreSQL", "TypeScript"],
+      status: "Completed",
+      category: "Full Stack"
+    },
+    { 
+      title: "Legal Practice Management", 
+      description: "Professional law firm website with case management and client portal features",
+      technologies: ["React", "Strapi", "Tailwind CSS", "REST API"],
+      status: "Live",
+      category: "Frontend + CMS"
+    },
+    { 
+      title: "Healthcare Application", 
+      description: "Multilingual React healthcare app with patient management and dashboard systems",
+      technologies: ["React", "i18n", "Responsive UI"],
+      status: "Live",
+      category: "Frontend"
+    },
+    { 
+      title: "Fashion E-commerce", 
+      description: "E-commerce platform specializing in fashion with admin panel and inventory management",
+      technologies: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
+      status: "Completed",
+      category: "Full Stack"
+    }
   ];
 
   return (
-    <div className="relative overflow-hidden bg-black min-h-screen flex flex-col items-center justify-center px-6 sm:px-12 md:px-20 text-white">
+    <div className="relative overflow-hidden bg-slate-950 min-h-screen flex flex-col items-center justify-center px-6 sm:px-12 md:px-20 text-white">
       
-      {/* Floating Blobs */}
+      {/* Subtle Background Elements */}
       {blobs.map(({ size, color, style, factorX, factorY }, i) => (
         <motion.div
           key={i}
-          className={`${color} rounded-full mix-blend-screen blur-xl opacity-80 absolute pointer-events-none`}
+          className={`${color} rounded-full mix-blend-screen blur-3xl opacity-30 absolute pointer-events-none`}
           style={{
             width: size * 1.2,
             height: size * 1.2,
@@ -42,155 +94,236 @@ function About() {
           transition={{
             type: "spring",
             stiffness: 60,
-            damping: 20,
+            damping: 25,
           }}
         />
       ))}
 
-      {/* Intro Section */}
-      <motion.div
+      {/* Hero Section */}
+      <motion.section
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.5 }}
         transition={{ duration: 0.8 }}
-        className="relative z-10 max-w-5xl flex flex-col md:flex-row items-center gap-12 my-24"
+        className="relative z-10 max-w-6xl flex flex-col lg:flex-row items-center gap-16 my-28"
       >
-        {/* Left Image */}
-        <motion.img
-          src={myPhoto}
-          alt="Dipesh Shrestha"
-          className="rounded-2xl w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 object-cover border-4 border-purple-500 shadow-2xl"
+        {/* Profile Image */}
+        <motion.div
           initial={{ scale: 0.85, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ type: "spring", stiffness: 80, damping: 20, delay: 0.2 }}
-        />
+          className="relative"
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-600 to-blue-600 rounded-2xl blur-xl opacity-50"></div>
+          <img
+            src={myPhoto}
+            alt="Dipesh Shrestha - Web Developer"
+            className="relative rounded-2xl w-72 h-72 lg:w-80 lg:h-80 object-cover border-4 border-slate-700 shadow-2xl"
+          />
+        </motion.div>
 
-        {/* Right Content */}
-        <div className="flex flex-col space-y-8">
-          <h1 className="text-4xl sm:text-5xl font-bold text-purple-400">About Me</h1>
-          <p className="text-lg sm:text-xl text-gray-300 leading-relaxed max-w-2xl">
-            I am <span className="text-purple-300 font-semibold">Dipesh Shrestha</span>, a dedicated Web Developer currently pursuing my{" "}
-            <span className="text-pink-400 font-semibold">Bachelor of Computer Applications (BCA)</span> at Tribhuvan University.
-            My passion lies in building dynamic, user-friendly web applications with modern tools and technologies.
-            Over time, I’ve gained hands-on experience with both <span className="text-blue-400">frontend</span> and{" "}
-            <span className="text-green-400">backend</span> systems.
-          </p>
+        {/* Introduction Content */}
+        <div className="flex flex-col space-y-8 flex-1">
+          <div>
+            <h1 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-slate-200 to-purple-300 bg-clip-text text-transparent mb-4">
+              Dipesh Shrestha
+            </h1>
+            <div className="text-xl text-slate-400 font-medium mb-6">
+              Full Stack Developer & Computer Science Student
+            </div>
+          </div>
+          
+          <div className="space-y-4">
+            <p className="text-lg text-slate-300 leading-relaxed">
+              I am a passionate web developer currently pursuing my <span className="text-purple-300 font-semibold">Bachelor of Computer Applications (BCA)</span> at Tribhuvan University. 
+              With a strong foundation in both frontend and backend technologies, I specialize in building scalable, 
+              user-centric web applications.
+            </p>
+            <p className="text-lg text-slate-300 leading-relaxed">
+              My expertise spans modern JavaScript frameworks, database design, and API development, 
+              with a focus on creating efficient and maintainable codebases.
+            </p>
+          </div>
+
+          {/* Quick Stats */}
+          {/* <div className="grid grid-cols-2 md:grid-cols-3 gap-6 pt-4">
+            <div className="text-center">
+              <div className="text-2xl font-bold text-purple-400">2+</div>
+              <div className="text-slate-400 text-sm">Years Experience</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-blue-400">15+</div>
+              <div className="text-slate-400 text-sm">Projects Completed</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-green-400">10+</div>
+              <div className="text-slate-400 text-sm">Technologies</div>
+            </div>
+          </div> */}
         </div>
-      </motion.div>
+      </motion.section>
 
-      {/* Web Development Skills */}
+      {/* Technical Expertise */}
       <motion.section
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
+        transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="max-w-6xl mx-auto mb-24 px-6"
+        className="max-w-6xl mx-auto mb-28 w-full"
       >
-        <h2 className="text-4xl text-center font-bold text-yellow-400 mb-12">
-          Web Development Skills
-        </h2>
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold text-slate-200 mb-4">Technical Expertise</h2>
+          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+            Comprehensive skills across modern web development technologies and platforms
+          </p>
+        </div>
 
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {[
-            { title: "HTML", color: "text-yellow-300", desc: "Structuring web content with semantic clarity and accessibility." },
-            { title: "CSS", color: "text-purple-400", desc: "Crafting visually appealing and responsive layouts." },
-            { title: "Tailwind CSS", color: "text-pink-400", desc: "Building consistent UIs with a utility-first approach." },
-            { title: "PHP", color: "text-green-400", desc: "Creating dynamic web applications with server-side logic." },
-            { title: "React.js", color: "text-yellow-400", desc: "Building scalable and interactive interfaces using components." },
-            { title: "MySQL", color: "text-blue-400", desc: "Managing and querying structured data efficiently." },
-          ].map(({ title, color, desc }, i) => (
+        <div className="grid gap-8 md:grid-cols-3">
+          {technicalSkills.map((category, index) => (
             <motion.div
-              key={i}
-              whileHover={{ scale: 1.05 }}
-              className="p-6 rounded-3xl bg-gray-900/60 backdrop-blur-md border border-gray-700 shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer"
+              key={category.category}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="group"
             >
-              <h3 className={`text-xl font-bold ${color} mb-2`}>{title}</h3>
-              <p className="text-gray-300 leading-relaxed">{desc}</p>
+              <div className="bg-slate-900/50 backdrop-blur-lg rounded-2xl p-8 border border-slate-700/50 hover:border-slate-600/50 transition-all duration-500 h-full">
+                <div className="text-3xl mb-4">{category.icon}</div>
+                <h3 className="text-2xl font-semibold text-slate-200 mb-6">{category.category}</h3>
+                <div className="space-y-3">
+                  {category.skills.map((skill, skillIndex) => (
+                    <div
+                      key={skillIndex}
+                      className="flex items-center gap-3 text-slate-300"
+                    >
+                      <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${category.color}`}></div>
+                      <span>{skill}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>
       </motion.section>
 
-      {/* Skill Categories */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
+      {/* Featured Projects */}
+      <motion.section
+        initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="relative z-10 max-w-6xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 my-20"
+        viewport={{ once: true }}
+        className="max-w-6xl mx-auto mb-28 w-full"
       >
-        {[
-          { title: "Frontend", color: "bg-purple-900/30", text: "text-purple-300", desc: "HTML, CSS, JavaScript, React, TailwindCSS, Figma" },
-          { title: "Backend", color: "bg-pink-900/30", text: "text-pink-300", desc: "PHP, MySQL, Node.js, Express.js" },
-          { title: "Databases", color: "bg-blue-900/30", text: "text-blue-300", desc: "MySQL, PostgreSQL, MongoDB" },
-          { title: "CMS", color: "bg-indigo-900/30", text: "text-indigo-300", desc: "Strapi, WordPress" },
-          { title: "Deployment", color: "bg-violet-900/30", text: "text-violet-300", desc: "Vercel, Netlify, InfinityFree, cPanel" },
-          { title: "Version Control", color: "bg-green-900/30", text: "text-green-300", desc: "Git, GitHub" },
-        ].map(({ title, color, text, desc }, i) => (
-          <div
-            key={i}
-            className={`p-6 ${color} rounded-xl shadow-md hover:scale-105 transform transition duration-300`}
-          >
-            <h3 className={`text-2xl font-semibold ${text} mb-2`}>{title}</h3>
-            <p className="text-gray-300">{desc}</p>
-          </div>
-        ))}
-      </motion.div>
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold text-slate-200 mb-4">Featured Projects</h2>
+          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+            Real-world applications demonstrating technical proficiency and problem-solving capabilities
+          </p>
+        </div>
 
-      {/* Education */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="relative z-10 max-w-5xl text-center my-20"
-      >
-        <h2 className="text-4xl font-bold text-pink-400 mb-6">Education</h2>
-        <p className="text-lg text-gray-300 leading-relaxed">
-          I am currently studying <span className="text-purple-300 font-semibold">Bachelor of Computer Applications (BCA)</span> at{" "}
-          <span className="text-pink-400 font-semibold">Tribhuvan University</span>.  
-          My coursework focuses on programming, databases, networking, and software engineering, giving me a strong foundation to build real-world applications.
-        </p>
-      </motion.div>
-
-      {/* Projects */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="relative z-10 max-w-6xl my-20 text-center"
-      >
-        <h2 className="text-4xl font-bold text-blue-400 mb-10">Major Projects</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          {[
-            { title: "E-commerce Website", color: "bg-purple-800/30", text: "text-purple-300", desc: "Developed a full-stack online store using HTML, CSS, JavaScript, Vendure, PostgreSQL." },
-            { title: "Law Website", color: "bg-pink-800/30", text: "text-pink-300", desc: "Developed a full-stack law website using React.js, TailwindCSS, and Strapi." },
-            { title: "WearHub", color: "bg-blue-800/30", text: "text-blue-300", desc: "Created an e-commerce site focused on fashion with TailwindCSS styling and admin panel for product management." },
-            { title: "The-Health", color: "bg-green-800/30", text: "text-green-300", desc: "A React healthcare app supporting i18n with OPD, ANC, Emergency, and dashboards." },
-          ].map(({ title, color, text, desc }, i) => (
-            <div key={i} className={`p-6 ${color} rounded-xl shadow-md hover:scale-105 transition duration-300`}>
-              <h3 className={`text-2xl font-semibold ${text} mb-3`}>{title}</h3>
-              <p className="text-gray-300">{desc}</p>
-            </div>
+        <div className="grid gap-8 md:grid-cols-2">
+          {projects.map((project, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="group"
+            >
+              <div className="bg-slate-900/30 backdrop-blur-lg rounded-2xl p-8 border border-slate-700/30 hover:border-slate-600/50 transition-all duration-500 h-full hover:bg-slate-900/50">
+                <div className="flex items-center justify-between mb-4">
+                  <span className="px-3 py-1 bg-slate-800 text-slate-300 rounded-full text-sm font-medium">
+                    {project.category}
+                  </span>
+                  <span className="px-3 py-1 bg-green-900/50 text-green-300 rounded-full text-sm font-medium">
+                    {project.status}
+                  </span>
+                </div>
+                
+                <h3 className="text-2xl font-semibold text-slate-200 mb-4 group-hover:text-white transition-colors">
+                  {project.title}
+                </h3>
+                
+                <p className="text-slate-400 leading-relaxed mb-6">
+                  {project.description}
+                </p>
+                
+                <div className="flex flex-wrap gap-2">
+                  {project.technologies.map((tech, techIndex) => (
+                    <span
+                      key={techIndex}
+                      className="px-3 py-1 bg-slate-800/50 text-slate-300 rounded-full text-sm font-medium"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
           ))}
         </div>
-      </motion.div>
+      </motion.section>
 
-      {/* Future Goals */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
+      {/* Education & Goals */}
+      <motion.section
+        initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="relative z-10 max-w-5xl text-center my-24"
+        viewport={{ once: true }}
+        className="max-w-4xl mx-auto mb-20 w-full"
       >
-        <h2 className="text-4xl font-bold text-purple-400 mb-6">Future Goals</h2>
-        <p className="text-lg text-gray-300 leading-relaxed">
-          My goal is to grow as a full-stack developer and contribute to impactful projects.  
-          I am especially interested in exploring <span className="text-blue-300">cloud computing</span>,{" "}
-          <span className="text-pink-300">AI integration</span>, and scalable systems that improve lives.  
-          With tools like <span className="text-purple-300 font-semibold">Strapi, PostgreSQL, and modern deployment platforms like Vercel</span>, 
-          I aim to design applications that are reliable, secure, and accessible to everyone.
-        </p>
-      </motion.div>
+        <div className="grid gap-12 md:grid-cols-2">
+          {/* Education */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            className="bg-slate-900/50 backdrop-blur-lg rounded-2xl p-8 border border-slate-700/50"
+          >
+            <div className="text-3xl mb-4">🎓</div>
+            <h3 className="text-2xl font-semibold text-slate-200 mb-4">Education</h3>
+            <div className="space-y-3">
+              <div className="text-lg font-medium text-purple-300">Bachelor of Computer Applications (BCA)</div>
+              <div className="text-slate-400">Tribhuvan University</div>
+              <div className="text-slate-500 text-sm">Currently Enrolled</div>
+            </div>
+            <p className="text-slate-300 mt-4 leading-relaxed">
+              Comprehensive coursework in software engineering, database systems, algorithms, 
+              and web technologies providing strong theoretical foundations.
+            </p>
+          </motion.div>
+
+          {/* Career Goals */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            className="bg-slate-900/50 backdrop-blur-lg rounded-2xl p-8 border border-slate-700/50"
+          >
+            <div className="text-3xl mb-4">🚀</div>
+            <h3 className="text-2xl font-semibold text-slate-200 mb-4">Career Vision</h3>
+            <p className="text-slate-300 leading-relaxed mb-4">
+              Focused on mastering cloud-native architectures, AI integration, and building 
+              scalable systems that solve real-world challenges.
+            </p>
+            <div className="space-y-2">
+              {[
+                "Advanced Cloud Platforms (AWS, Azure)",
+                "Machine Learning Integration",
+                "Microservices Architecture",
+                "System Design & Scalability"
+              ].map((goal, index) => (
+                <div key={index} className="flex items-center gap-3 text-slate-400">
+                  <div className="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
+                  <span className="text-sm">{goal}</span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </motion.section>
     </div>
   );
 }
