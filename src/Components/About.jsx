@@ -75,7 +75,7 @@ function About() {
   ];
 
   return (
-    <div className="relative overflow-hidden bg-black min-h-screen flex flex-col items-center justify-center px-6 sm:px-12 md:px-20 text-white">
+    <div className="relative overflow-hidden bg-slate-950 min-h-screen flex flex-col items-center justify-center px-6 sm:px-12 md:px-20 text-white">
       
       {/* Subtle Background Elements */}
       {blobs.map(({ size, color, style, factorX, factorY }, i) => (

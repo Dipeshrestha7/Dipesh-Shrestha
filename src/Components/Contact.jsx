@@ -54,7 +54,7 @@ function Contact() {
       </motion.div>
 
       {/* Contact Section */}
-      <div ref={containerRef} className="relative z-10 max-w-4xl mx-auto mb-12 sm:mb-16">
+      <div ref={containerRef} className="relative z-10 max-w-4xl mx-auto lg:mb-20 mb-16">
         {/* Mobile: Vertical stack, Desktop: Grid with triangle layout */}
         <div className="flex flex-col  sm:grid sm:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 items-center justify-items-center">
           {contactInfo.map((item, idx) => (
