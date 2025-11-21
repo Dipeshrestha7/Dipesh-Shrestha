@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { NavLink } from "react-router-dom";
 
 function Project() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -88,7 +89,7 @@ function Project() {
   ];
 
   return (
-    <div className="relative bg-slate-950 text-gray-100 min-h-screen px-6 md:px-20 py-16 overflow-hidden">
+    <div className="relative bg-black text-gray-100 min-h-screen px-6 md:px-20 py-16 overflow-hidden">
 
       {/* Subtle background elements */}
       {blobs.map(({ size, color, style, factorX, factorY }, i) => (
@@ -257,9 +258,9 @@ function Project() {
           <p className="text-slate-400 text-lg mb-8 max-w-2xl mx-auto">
             Let's discuss how we can build something extraordinary together using modern technologies and proven methodologies.
           </p>
-          <button className="bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold px-8 py-4 rounded-xl hover:from-purple-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-105">
+          <NavLink to="/contact" className="bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold px-8 py-4 rounded-xl hover:from-purple-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-105">
             Start a Conversation
-          </button>
+          </NavLink>
         </div>
       </motion.section>
 
