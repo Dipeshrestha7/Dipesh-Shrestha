@@ -20,7 +20,7 @@ function Header() {
 
   return (
     <motion.nav
-      className="bg-black/5 backdrop-blur-3xl ml-2 mr-2 md:p-6 sticky top-0 z-50 shadow-lg font-mono"
+      className="bg-black/5 backdrop-blur-3xl ml-2 mr-2 mt-2 lg:mt-0 md:mt-0 md:p-6 sticky top-0 z-50 shadow-lg font-mono"
       initial={{ y: -40, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
